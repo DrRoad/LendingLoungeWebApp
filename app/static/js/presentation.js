@@ -71,6 +71,13 @@ function move_slide_backward() {
 }
 
 $(document).ready(function () {
+    //Global Highcharts Options
+    Highcharts.setOptions({
+      lang: {
+        numericSymbols: [ "k" , "M" , "B" , "T" , "P" , "E"]
+      }
+    });
+
     //loan status plot
     $('#yearly-loan-issuance-plot').highcharts({
         chart: {
