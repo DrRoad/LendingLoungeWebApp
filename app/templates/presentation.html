@@ -1,6 +1,107 @@
 {% extends "base.html" %}
 {% block content %}
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/43836333" width="800" height="600" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<div class="panel-body slide center active" id="slide-1">
+	<h2>Maximizing ROI on Peer-to-Peer Loans from Lending Club</h2>
+	<div id="slide-1-plots">
+		<div id="yearly-loan-issuance-plot" class="slide-plot panel-body"></div>
+		<div id="case-study-incomplete-plot" class="slide-plot panel-body"></div>
+	</div>
+	<h2>Need a Better Investment Strategy</h2>
 
+</div>
+
+<div class="panel-body slide center hidden" id="slide-2">
+	<h2>Workflow</h2>
+	<div id="slide-2-plots">
+			<img src="../static/images/workflow-chart.png" />
+	</div>
+</div>
+
+<div class="panel-body slide center hidden" id="slide-3">
+	<h2>The Data</h2>
+	<ul>
+		<li><h3>~300,000 historical loans since 2007</h3></li>
+		<li><h3>~100,000 paid or defaulted loans</h3></li>
+	</ul>
+	<div id="slide-3-plots">
+		<div id="loan-status-plot" class="slide-plot panel-body"></div>
+		<div id="default-hist" class="slide-plot panel-body"></div>
+	</div>
+</div>
+
+<div class="panel-body slide center hidden" id="slide-4">
+	<h2>Algorithms</h2>
+	<div id="slide-4-plots">
+		<h3>Logistic Regression</h3>
+		<ul>
+			<li>Classify default / prepay / pay on time</li>
+		</ul>
+		<table>
+			<thead>
+				<tr>
+					<th>Class</th>
+					<th>Logistic Regressor Precision</th>
+					<th>Dummy Classifier Precision</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Default</td>
+					<td>38.7 &#177; 6.5 %</td>
+					<td>15.9 &#177; 1.0 %</td>
+				</tr>
+				<tr>
+					<td>Prepaid</td>
+					<td>68.6 &#177; 0.5 %</td>
+					<td>67.5 &#177; 0.6 %</td>
+				</tr>
+				<tr>
+					<td>Fully Paid on Time</td>
+					<td>47.8 &#177; 3.7 %</td>
+					<td>16.6 &#177; 1.1 %</td>
+				</tr>
+			</tbody>
+		</table>
+		<h3>Important Features</h3>
+		<ul>
+			<li>Interest Rate</li>
+			<li>Length of Description</li>
+			<li>Debt-to-Income Ratio</li>
+			<li>Unemployment Rate in Borrower's State</li>
+		</ul>
+	</div>
+	<div id="slide-4-right" class="panel-body">
+		<h3>Random Forest Regression</h3>
+		<div id="random-forest-plot" class="slide-plot panel-body"></div>
+	</div>
+</div>
+
+<div class="panel-body slide center hidden" id="slide-5">
+	<h2>Results</h2>
+	<div id="slide-5-plots">
+		<div id="case-study-plot" class="slide-plot panel-body"></div>
+	</div>
+	<div id="slide-5-right">
+		<h3>Case Study</h3>
+		<ul>
+			<li>2000 Loans Originating Between 2011 - 2012</li>
+			<li>All A, B, or C grades with 36 month terms</li>
+			<li>Investments made across all grades using 4 strategies
+				<ol>
+					<li>Random Selection</li>
+					<li>Lowest Borrower DTI</li>
+					<li>Highest Interest Rates</li>
+					<li>LendingLounge Algorithm</li>
+				</ol>
+			</li>
+		</ul>
+	</div>
+</div>
 {% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="../static/js/highcharts.js"/></script>
+<script type="text/javascript" src="../static/js/presentation.js"></script>
+<script type="text/javascript" src="../static/js/highcharts-more.js"></script>
+{%  endblock %}

@@ -468,8 +468,74 @@ circle{
     font-size: 1.5em;
 }
 
+/*
+* Presentation
+*/
 
+.slide {
+    width: 100%;
+    font-size: 20px;
+}
 
+.slide-plot {
+    width: 50%;
+    float: left;
+}
 
+#slide-1-plots {
+    width: 100%;
+    padding: 50px 10%;
+    float: left;
+}
 
+#slide-2-plots {
+    width: 100%;
+    padding: 50px 10%;
+    float: left;   
+}
+
+#slide-4-plots, #slide-4-right {
+    width: 50%;
+    float: left;
+}
+
+.slide table {
+    text-align: left;
+    width: 100%;
+}
+
+.slide table td, th {
+    border-bottom: 1px solid #212121;
+}
+
+#slide-4 #random-forest-plot {
+    width: 100%;
+}
+
+#slide-4-plots {
+    text-align: left;
+}
+
+#slide-5-plots, #slide-5-right {
+    width: 50%;
+    float: left;
+}
+
+#slide-5 #case-study-plot {
+    width: 100%;
+}
+
+#slide-5 ul > li {
+    text-align: left;
+    list-style-type: circle;
+}
+
+#slide-5 ol > li {
+    text-align: left;
+    list-style-type: decimal;
+}
+
+.hidden {
+    display: none;
+}
 
