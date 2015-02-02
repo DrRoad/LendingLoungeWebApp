@@ -8,11 +8,21 @@ $(document).ready(function () {
             text: 'Loan Status Breakdown'
         },
         xAxis: {
-            categories: ['Paid On Time', 'Prepaid', 'Default']
+            categories: ['Paid On Time', 'Prepaid', 'Default'],
+            labels : {
+                style: {
+                    fontSize: '20px'
+                }
+            }
         },
         yAxis: {
             title: {
                 text: '% of Loans',
+                style: {
+                    fontSize: '24px'
+                }
+            },
+            labels : {
                 style: {
                     fontSize: '20px'
                 }
@@ -22,8 +32,14 @@ $(document).ready(function () {
         legend: {
             enabled: false
         },
+        tooltip: {
+            useHTML: true,
+            headerFormat: '<b><p>{point.key}</p></b>',
+            pointFormat: '<b><p>{point.y}%</p></b>'
+        },
         series: [{
             //name: 'Days Since Loan Origination',
+            color: 'blue',
             data: [27, 57, 16]
         }]
     });
@@ -37,28 +53,13 @@ $(document).ready(function () {
             text: 'Time to Default'
         },
         xAxis: {
-            categories: ['-20',
-                         '76',
-                         '174',
-                         '272',
-                         '370',
-                         '467',
-                         '565',
-                         '663',
-                         '761',
-                         '858',
-                         '956',
-                         '1054',
-                         '1152',
-                         '1249',
-                         '1347',
-                         '1445',
-                         '1542',
-                         '1640',
-                         '1738',
-                         '1836'],
             title: {
                 text: 'Days Since Loan Origination',
+                style: {
+                    fontSize: '24px'
+                }
+            },
+            labels : {
                 style: {
                     fontSize: '20px'
                 }
@@ -68,23 +69,47 @@ $(document).ready(function () {
             title: {
                 text: 'Number of Loans',
                 style: {
+                    fontSize: '24px'
+                }
+            },
+            labels : {
+                style: {
                     fontSize: '20px'
                 }
-            }
+            },
         },
 
         legend: {
             enabled: false
         },
+        tooltip: {
+            useHTML: true,
+            headerFormat: '<b><p>{point.key} Days</p></b>',
+            pointFormat: '<b><p>{point.y} Loans</p></b>'
+        },
         series: [{
             //name: 'Days Since Loan Origination',
-            data: [  3.00000000e+02,   8.19000000e+02,   1.00600000e+03,
-                     1.52500000e+03,   1.00000000e+03,   9.55000000e+02,
-                     8.18000000e+02,   6.88000000e+02,   4.05000000e+02,
-                     2.45000000e+02,   1.47000000e+02,   5.90000000e+01,
-                     7.00000000e+00,   6.00000000e+00,   5.00000000e+00,
-                     2.00000000e+00,   3.00000000e+00,   0.00000000e+00,
-                     0.00000000e+00,   1.00000000e+00]
+            color: 'blue',
+            data: [[0, 3.00000000e+02],
+                   [76, 8.19000000e+02],
+                   [174, 1.00600000e+03],
+                   [272, 1.52500000e+03],
+                   [370, 1.00000000e+03],
+                   [467, 9.55000000e+02],
+                   [565, 8.18000000e+02],
+                   [663, 6.88000000e+02],
+                   [761, 4.05000000e+02],
+                   [858, 2.45000000e+02],
+                   [956, 1.47000000e+02],
+                   [1054, 5.90000000e+01],
+                   [1152, 7.00000000e+00],
+                   [1249, 6.00000000e+00],
+                   [1347, 5.00000000e+00],
+                   [1445, 2.00000000e+00],
+                   [1542, 3.00000000e+00],
+                   [1640, 0.00000000e+00],
+                   [1738, 0.00000000e+00],
+                   [1836, 1.00000000e+00]]
         }]
     });
 
@@ -97,28 +122,13 @@ $(document).ready(function () {
             text: 'Time to Prepay'
         },
         xAxis: {
-            categories: ['25',
-                         '77',
-                         '128',
-                         '179',
-                         '231',
-                         '282',
-                         '333',
-                         '385',
-                         '436',
-                         '488',
-                         '539',
-                         '590',
-                         '642',
-                         '693',
-                         '744',
-                         '796',
-                         '847',
-                         '898',
-                         '950',
-                         '1001'],
             title: {
                 text: 'Days Since Loan Origination',
+                style: {
+                    fontSize: '24px'
+                }
+            },
+            labels : {
                 style: {
                     fontSize: '20px'
                 }
@@ -128,6 +138,11 @@ $(document).ready(function () {
             title: {
                 text: 'Number of Loans',
                 style: {
+                    fontSize: '24px'
+                }
+            },
+            labels : {
+                style: {
                     fontSize: '20px'
                 }
             }
@@ -136,15 +151,34 @@ $(document).ready(function () {
         legend: {
             enabled: false
         },
+        tooltip: {
+            useHTML: true,
+            headerFormat: '<b><p>{point.key} Days</p></b>',
+            pointFormat: '<b><p>{point.y} Loans</p></b>'
+        },
         series: [{
             //name: 'Days Since Loan Origination',
-            data: [  5.00000000e+00,   4.28600000e+03,   3.85000000e+03,
-                     1.98700000e+03,   4.51400000e+03,   5.36000000e+03,
-                     2.45200000e+03,   4.65100000e+03,   4.19600000e+03,
-                     3.63800000e+03,   1.84800000e+03,   3.14000000e+03,
-                     2.82700000e+03,   1.33400000e+03,   2.33300000e+03,
-                     1.97200000e+03,   9.51000000e+02,   1.55500000e+03,
-                     1.49000000e+03,   6.38000000e+02]
+            color: 'blue',
+            data: [  [25, 5.00000000e+00],  
+                     [77, 4.28600000e+03],   
+                     [128, 3.85000000e+03],
+                     [179, 1.98700000e+03],
+                     [231, 4.51400000e+03],
+                     [282, 5.36000000e+03],
+                     [333, 2.45200000e+03],
+                     [385, 4.65100000e+03],
+                     [436, 4.19600000e+03],
+                     [488, 3.63800000e+03],
+                     [539, 1.84800000e+03],
+                     [590, 3.14000000e+03],
+                     [642, 2.82700000e+03],
+                     [693, 1.33400000e+03],
+                     [744, 2.33300000e+03],
+                     [796, 1.97200000e+03],
+                     [847, 9.51000000e+02],
+                     [898, 1.55500000e+03],
+                     [950, 1.49000000e+03],
+                     [1001, 6.38000000e+02]]
         }]
     });
 
@@ -157,17 +191,27 @@ $(document).ready(function () {
             text: 'Convergence of Random Forest'
         },
         xAxis: {
-            categories: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 300, 500, 1000],
             title: {
                 text: 'Number of Trees in Forest',
                 style: {
+                    fontSize: '24px'
+                }
+            },
+            labels : {
+                style: {
                     fontSize: '20px'
                 }
-            }
+            },
+            type: 'logarithmic'
         },
         yAxis: {
             title: {
                 text: 'Coefficient of Determination',
+                style: {
+                    fontSize: '24px'
+                }
+            },
+            labels : {
                 style: {
                     fontSize: '20px'
                 }
@@ -177,42 +221,206 @@ $(document).ready(function () {
         legend: {
             enabled: true
         },
+        tooltip: {
+            shared: [true],
+            crosshairs: [true],
+            useHTML: true,
+            headerFormat: '<b><p>{point.key} Trees</p></b>',
+            pointFormat: '<b><p style="color: {series.color}">{series.name}: {point.y}%</p></b>'
+        },
         series: [{
             name: 'Training Set',
-            data: [0.93, 0.94, 0.94, 0.94, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95]
+            color: 'blue',
+            lineWidth: 5,
+            marker: {
+                radius: 6
+            },
+            data: [[10, 0.93], 
+                   [20, 0.94],
+                   [30, 0.94], 
+                   [40, 0.94], 
+                   [50, 0.95], 
+                   [60, 0.95], 
+                   [70, 0.95], 
+                   [80, 0.95], 
+                   [90, 0.95], 
+                   [100, 0.95], 
+                   [300, 0.95], 
+                   [500, 0.95], 
+                   [1000, 0.95]]
         },
         {
             name: 'Test Set',
-            data: [0.53, 0.56, 0.59, 0.58, 0.58, 0.59, 0.58, 0.58, 0.59, 0.59, 0.59, 0.59, 0.59]
+            color: 'green',
+            lineWidth: 5,
+            marker: {
+                radius: 6
+            },
+            data: [[10, 0.53], 
+                   [20, 0.56], 
+                   [30, 0.59], 
+                   [40, 0.58], 
+                   [50, 0.58], 
+                   [60, 0.59], 
+                   [70, 0.58], 
+                   [80, 0.58], 
+                   [90, 0.59], 
+                   [100 ,0.59], 
+                   [300, 0.59], 
+                   [500, 0.59], 
+                   [1000, 0.59]]
         }]
     });
 
     //case study plot
     $('#case-study-plot').highcharts({
         chart: {
-            type: 'column'
+            type: 'line'
         },
         title: {
             text: 'ROI for Various Investment Strategies'
         },
-        xAxis: {
-            categories: ['Random', 'Lowest DTI', 'Highest Int Rate', 'Loan Quickr Pickr']
-        },
-        yAxis: {
-            title: {
-                text: 'Actual ROI (%)',
+        xAxis : {
+            labels : {
                 style: {
                     fontSize: '20px'
                 }
             }
         },
+        yAxis: {
+            title: {
+                text: 'Actual ROI (%)',
+                style: {
+                    fontSize: '24px'
+                },
+            },
+            labels : {
+                style: {
+                    fontSize: '20px'
+                }
+            },
+            min: -2.7,
+            max: 10
+        },
 
         legend: {
-            enabled: false
+            enabled: true
+        },
+        tooltip: {
+            shared: [true],
+            crosshairs: [true],
+            useHTML: true,
+            headerFormat: '<b><p>{point.key} Samples from each grade</p></b>',
+            pointFormat: '<b><p style="color: {series.color}">{series.name}: {point.y}%</p></b>',
+            
+            // formatter: function() {
+            //     var s = '<b><p>' + this.x + ' Samples from each grade</p></b>';
+            //     var chart = this.points[0].series.chart;
+            //     var index = 0;
+            //     $.each(chart.series, function(i, series) { 
+            //         if (series.name != "Random Error") {
+            //             s += '<p style="color: ' + series.color + '"><b>'+ series.name +': ' +
+            //                 series.data[index].y +'%' + '</b></p>';     //use index to get the y value
+            //             }
+            //     });           
+            //     return s;
+            // },
         },
         series: [{
-            //name: 'Days Since Loan Origination',
-            data: [0.0, 4.4, 2.8, 9.3]
-        }]
+            name: 'Random',
+            lineWidth: 5,
+            marker: {
+                radius: 6
+            },
+            data: [[1, -0.2], 
+                   [5, 2.5],
+                   [10, 1.2],
+                   [20, 1.9],
+                   [30, 1.4],
+                   [40, 1.8],
+                   [50, 1.4],
+                   [60, 1.5],
+                   [70, 1.7],
+                   [80, 1.6],
+                   [90, 1.5],
+                   [100, 1.5]]
+            },
+            {
+            name: 'Random Error',
+            showInLegend: false,
+            type: 'errorbar',
+            lineWidth: 1,
+            data: [
+                   [1, -18.2, 17.8],
+                   [5, -3.6, 8.6],
+                   [10, -3.9, 6.3],
+                   [20, -1.5, 5.3],
+                   [30, -1.3, 4.1],
+                   [40, -0.9, 4.5],
+                   [50, -0.6, 3.6],
+                   [60, -0.5, 3.5],
+                   [70, -0.1, 3.5],
+                   [80, 0.2, 3.0],
+                   [90, -0.1, 3.1],
+                   [100, 0.2, 2.8]]
+            },
+            {
+            name: 'Lowest DTI',
+            lineWidth: 5,
+            marker: {
+                radius: 6
+            },
+            data: [[1, 15], 
+                   [5, 10.6],
+                   [10, 4.4],
+                   [20, 7.2],
+                   [30, -0.4],
+                   [40, -2.6],
+                   [50, -1.7],
+                   [60, -0.1],
+                   [70, -0.2],
+                   [80, 0.2],
+                   [90, 0.9],
+                   [100, 1.7]]
+            },
+            {
+            name: 'Highest Int Rate',
+            lineWidth: 5,
+            marker: {
+                radius: 6
+            },
+            data: [[1, 15], 
+                   [5, 0.4],
+                   [10, 2.9],
+                   [20, 2.6],
+                   [30, 4.0],
+                   [40, 1.6],
+                   [50, 1.4],
+                   [60, 0.0],
+                   [70, -0.5],
+                   [80, -0.3],
+                   [90, -0.3],
+                   [100, -2.0]]
+            },
+            {
+            name: 'Lending Lounge',
+            lineWidth: 5,
+            marker: {
+                radius: 6
+            },
+            data: [[1, 9.3], 
+                   [5, 0.2],
+                   [10, 3.7],
+                   [20, 4.5],
+                   [30, 5.7],
+                   [40, 6.5],
+                   [50, 6.7],
+                   [60, 6.1],
+                   [70, 6.5],
+                   [80, 5.7],
+                   [90, 5.5],
+                   [100, 5.1]]
+            }
+        ]
     });
 });

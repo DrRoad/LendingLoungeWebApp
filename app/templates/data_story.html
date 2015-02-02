@@ -63,47 +63,39 @@
 				<h3>Overview</h3>
 				<p>Three pieces of information were desired from the analysis:</p>
 				<ol>
-					<li>1. Probability of Default/Prepay/Fully Pay</li>
+					<li>1. Probability of Default / Prepay / Full Payment</li>
 					<li>2. If a loan defaults/is prepaid, when is it likely to occur</li>
 					<li>3. Given 1 and 2, what is the expected ROI</li>
 				</ol>
-				<p>To begin the attack, the data was carefully examined for outliers, correlated features, incorrect data, and to get an overall impression of the dataset (a USPS driver was incorrectly listed as making $7 million dollars a year, for instance).</p>
+				<p>The data was carefully examined for outliers, correlated features, incorrect data, and to get an overall impression of the dataset (a USPS driver was incorrectly listed as making $7 million dollars a year, for instance).</p>
 				<p>After the exploratory analysis, the data was cleaned and the categorical variables were binarized. It was at this step that outside economic data was incorporated for each borrower's location and issue year. Following the cleaning process, the data was loaded into an Amazon AWS MySQL server to allow easy access and integrity.</p>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div id="logistic-regr-plot" class="data-story-plot panel-body">
-			<table>
+			<table id="classification-table" class="data-story-table">
 				<thead>
 					<tr>
 						<th>Class</th>
 						<th>Precision</th>
-						<th>Recall</th>
-						<th>F1-Score</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>Default</td>
 						<td>0.71</td>
-						<td>0.01</td>
-						<td>0.02</td>
 					</tr>
 					<tr>
 						<td>Fully Paid on Time</td>
 						<td>0.53</td>
-						<td>0.10</td>
-						<td>0.17</td>
 					</tr>
 					<tr>
 						<td>Prepaid</td>
 						<td>0.68</td>
-						<td>0.99</td>
-						<td>0.80</td>
 					</tr>
 					<tr>
-						<td colspan="4">Overall Accuracy: 0.68</td>
+						<td colspan="2" class="center">Overall Accuracy: 0.68</td>
 					</tr>
 				</tbody>
 			</table>
@@ -118,22 +110,84 @@
 		<div id="random-forest-left" class="panel-default data-text">
 			<h3>Regression - Random Forest</h3>
 				<p>To estimate how long it would take for a given loan to default or be prepaid, a random forest regressor was employed. Initially, a linear regression was used, but the overall fit and predictive abilities were too poor for the application.</p>
-				<p>Through another cross-validation process, it was found that 100 trees in the forest resulted in a converged value of for the coefficient of determination (r-squared) of 0.60.</p>
+				<p>To put the defaulted, prepaid, and fully paid loans on an equal footing, a metric called "months to zero value" was employed, where a loan reaches zero value (from the investor's persepctive) when it defaults or is fully paid off. For example, a loan which is paid according to the Lending Club schedule will have a months to zero value of 36.</p>
+				<p>Through a cross-validation process, it was found that 100 trees in the forest resulted in a converged value of for the coefficient of determination (r-squared) of 0.60 (see plot).</p>
 		</div>
 		<div id="random-forest-plot" class="data-story-plot panel-body">d</div>
 	</div>
 	<div class="row">
 		<h2 class="center">Results and Insights</h2>
 		<div class="panel-default">
-			<div id="case-study-plot" class="data-story-plot panel-body"></div>
+			<div id="case-study-left" class="data-story-plot panel-body">
+				<div id="case-study-plot" class="panel-body"></div>
+				<table class="data-story-table" id="p-value-table">
+					<thead>
+						<tr>
+							<th>Number of Loans</th>
+							<th>p-value</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>0.32</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>0.35</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>0.31</td>
+						</tr>
+						<tr>
+							<td>20</td>
+							<td>0.22</td>
+						</tr>
+						<tr>
+							<td>30</td>
+							<td>0.06</td>
+						</tr>
+						<tr>
+							<td>40</td>
+							<td>0.04</td>
+						</tr>
+						<tr>
+							<td>50</td>
+							<td>0.008</td>
+						</tr>
+						<tr>
+							<td>60</td>
+							<td>0.01</td>
+						</tr>
+						<tr>
+							<td>70</td>
+							<td>0.004</td>
+						</tr>
+						<tr>
+							<td>80</td>
+							<td>0.002</td>
+						</tr>
+						<tr>
+							<td>90</td>
+							<td>0.005</td>
+						</tr>
+						<tr>
+							<td>100</td>
+							<td>0.003</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
 			<div id="case-study-right" class="panel-default data-text">
 				<h3>Case Study</h3>
-				<p>The purpose of this project was to aid me in making investments in peer-to-peer loans. It was therefore critical to do a case study following a usual investment strategy for a small-time investor. 2000 A, B, and C grade loans originating in 2011 and 2012 were chosen at random. Of these, 10 were chosen from each grade and tracked for their ROI. How the 30 loans out of the possible 2000 were chosen is where it gets interesting.</p>
-				<p><b>Strategy 1: Random </b>The first strategy was to choose the 10 loans from each grade at random. This happens more than you might imagine (at least in my naive case).</p>
+				<p>The purpose of this project was to aid me in making investments in peer-to-peer loans. It was therefore critical to do a case study following a usual investment strategy for a small-time investor. 2000 A, B, and C grade loans originating in 2011 and 2012 were chosen at random. These loans were not included in the training or cross-validation sets for the algorithms. Of these, a given number were chosen from each grade and tracked for their ROI. How the 30 loans out of the possible 2000 were chosen is where it gets interesting.</p>
+				<p><b>Strategy 1: Random </b>The first strategy was to choose the loans from each grade at random. This happens more than you might imagine (at least in my naive case). The error bars are one standard deviation, acquired after repeating the random selection 100 times.</p>
 				<p><b>Strategy 2: Lowest DTI </b>The second strategy was to choose loans from the borrowers with the lowest debt-to-income ratio, a common strategy among amateur investors.</p>
 				<p><b>Strategy 3: Highest Interest Rate </b>The third strategy was to pick the loans in each grade with the highest interest rate. This mimicks the approach of a novice investor.</p>
-				<p><b>Strategy 4: Loan Quickr Pickr - Highest Est. ROI </b>The fourth and final strategy was to choose the 10 loans from each grade which had the highest estimated return on investment, as predicted through the above analysis.</p>
-				<p>The results are shown in the plot on the left. For this specific case, the loans chosen through Loan Quickr Pickr provided more than twice the return of the next best strategy. I'm not claiming that there isn't a better strategy out there, though. </p>
+				<p><b>Strategy 4: Lending Lounge - Highest Est. ROI </b>The fourth and final strategy was to choose the loans from each grade with the highest estimated return on investment, as predicted through the above analysis.</p>
+				<p>The results are shown in the plot on the left. For this specific case, the loans chosen through Lending Lounge provided nearly twice the return of the next best strategy, assuming you invested in more than ~25 loans per grade. For those interested in the statistical significance of the findings, the table on the left shows the p-values corresponding to the returns from Lending Lounge vs random choice.</p>
 			</div>
 		</div>
 	</div>
@@ -147,4 +201,5 @@
 {% block scripts %}
 <script type="text/javascript" src="../static/js/highcharts.js"/></script>
 <script type="text/javascript" src="../static/js/data_story.js"></script>
+<script type="text/javascript" src="../static/js/highcharts-more.js"></script>
 {%  endblock %}
