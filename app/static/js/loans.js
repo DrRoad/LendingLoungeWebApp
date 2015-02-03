@@ -187,12 +187,11 @@ function color_table_rows_on_hover() {
     $('.loan-tr')
         .mouseenter(function() {
              $(this).children().css('background-color', '#8dbdd8');
-             console.log($(this).attr("id"));
              //color plot data point on hover
              $("#node_" + $(this).attr("id")).attr("r", 15);
     })
       .mouseleave(function() {
-             $(this).children().css('background-color', 'white');
+             $(this).children().css('background-color', 'rgba(200, 200, 200, 0.5)');
              $("#node_" + $(this).attr("id")).attr("r", 6);
     });
 
@@ -430,10 +429,10 @@ function draw_d3_chart(container, data) {
         } 
         else {
             //color points based on ROI
-            if(roi >= 0.5) {
+            if(roi >= 4) {
                 return "green";
             }
-            else if(roi < 0.5 && roi > -2.0) {
+            else if(roi < 4 && roi > 0) {
                 return "orange";
             }
             else {

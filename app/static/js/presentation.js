@@ -16,6 +16,7 @@ $(document).keydown(function(key) {
         case 40:
             move_slide_forward();
         break;
+        default: return;
     }
     key.preventDefault();
 });
@@ -140,6 +141,12 @@ $(document).ready(function () {
             text: 'ROI for Various Investment Strategies'
         },
         xAxis : {
+            title: {
+                text: 'Number of Loans Per Grade',
+                style: {
+                    fontSize: '24px'
+                },
+            },
             labels : {
                 style: {
                     fontSize: '20px'
@@ -190,25 +197,6 @@ $(document).ready(function () {
                    [80, 1.6],
                    [90, 1.5],
                    [100, 1.5]]
-            },
-            {
-            name: 'Random Error',
-            showInLegend: false,
-            type: 'errorbar',
-            lineWidth: 1,
-            data: [
-                   [1, -18.2, 17.8],
-                   [5, -3.6, 8.6],
-                   [10, -3.9, 6.3],
-                   [20, -1.5, 5.3],
-                   [30, -1.3, 4.1],
-                   [40, -0.9, 4.5],
-                   [50, -0.6, 3.6],
-                   [60, -0.5, 3.5],
-                   [70, -0.1, 3.5],
-                   [80, 0.2, 3.0],
-                   [90, -0.1, 3.1],
-                   [100, 0.2, 2.8]]
             },
             {
             name: 'Lowest DTI',
@@ -412,27 +400,7 @@ $(document).ready(function () {
             pointFormat: '<b><p style="color: {series.color}">{series.name}: {point.y}%</p></b>'
         },
         series: [{
-            name: 'Training Set',
-            color: 'blue',
-            lineWidth: 5,
-            marker: {
-                radius: 6
-            },
-            data: [[10, 0.93], 
-                   [20, 0.94],
-                   [30, 0.94], 
-                   [40, 0.94], 
-                   [50, 0.95], 
-                   [60, 0.95], 
-                   [70, 0.95], 
-                   [80, 0.95], 
-                   [90, 0.95], 
-                   [100, 0.95], 
-                   [300, 0.95], 
-                   [500, 0.95], 
-                   [1000, 0.95]]
-        },
-        {
+        
             name: 'Test Set',
             color: 'green',
             lineWidth: 5,
@@ -464,6 +432,12 @@ $(document).ready(function () {
             text: 'ROI for Various Investment Strategies'
         },
         xAxis : {
+            title: { 
+              text: "# of Loans Per Grade",
+              style: {
+                    fontSize: '24px'
+                }
+            },
             labels : {
                 style: {
                     fontSize: '20px'
@@ -495,19 +469,6 @@ $(document).ready(function () {
             useHTML: true,
             headerFormat: '<b><p>{point.key} Samples from each grade</p></b>',
             pointFormat: '<b><p style="color: {series.color}">{series.name}: {point.y}%</p></b>',
-            
-            // formatter: function() {
-            //     var s = '<b><p>' + this.x + ' Samples from each grade</p></b>';
-            //     var chart = this.points[0].series.chart;
-            //     var index = 0;
-            //     $.each(chart.series, function(i, series) { 
-            //         if (series.name != "Random Error") {
-            //             s += '<p style="color: ' + series.color + '"><b>'+ series.name +': ' +
-            //                 series.data[index].y +'%' + '</b></p>';     //use index to get the y value
-            //             }
-            //     });           
-            //     return s;
-            // },
         },
         series: [{
             name: 'Random',
@@ -527,25 +488,6 @@ $(document).ready(function () {
                    [80, 1.6],
                    [90, 1.5],
                    [100, 1.5]]
-            },
-            {
-            name: 'Random Error',
-            showInLegend: false,
-            type: 'errorbar',
-            lineWidth: 1,
-            data: [
-                   [1, -18.2, 17.8],
-                   [5, -3.6, 8.6],
-                   [10, -3.9, 6.3],
-                   [20, -1.5, 5.3],
-                   [30, -1.3, 4.1],
-                   [40, -0.9, 4.5],
-                   [50, -0.6, 3.6],
-                   [60, -0.5, 3.5],
-                   [70, -0.1, 3.5],
-                   [80, 0.2, 3.0],
-                   [90, -0.1, 3.1],
-                   [100, 0.2, 2.8]]
             },
             {
             name: 'Lowest DTI',

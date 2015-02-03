@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div class="row center" id="index-head">
     <h1>Find the best loans on <img src="../static/images/lc_logo.png" width="250" /></h1>
 </div>
@@ -23,8 +24,8 @@
                 </div>
             </div>
             
-            <div class="panel-default" id="index-main-right">
-                <div class="panel-body hidden" id="index-loan-detail">
+            <div class="panel-body" id="index-main-right">
+                <div class="panel-body hidden grey" id="index-loan-detail">
                     <div class="loan-detail" id="loan-detail-borrower">
                         <div class="center">
                             <h2>Loan <span id="index-loan-id"></span></h2>
@@ -106,7 +107,7 @@
     </div>
 </div>
 <div class="hidden">
-    <div class="loan-thumbnail" id="loan-thumbnail-div">
+    <div class="loan-thumbnail grey" id="loan-thumbnail-div">
         <img src="../static/images/x_black.png" class="x" width="36" height="36">
         <div class="wrapper">
             <div id="map" class="map"></div>

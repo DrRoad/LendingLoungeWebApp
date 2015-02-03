@@ -44,6 +44,7 @@ $(document).ready(function() {
 		$(".loan-thumbnail").toggleClass("loan-thumbnail-highlighted", false);
 		$(this).toggleClass("loan-thumbnail-highlighted", true);
 		$("#index-loan-detail").toggleClass("hidden", false);
+		
 	});
 	$(".loan-thumbnail").mouseover(function() {
 		$(this).css("cursor", "pointer");
