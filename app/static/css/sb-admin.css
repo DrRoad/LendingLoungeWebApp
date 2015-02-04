@@ -24,6 +24,11 @@ body {
     background-color: rgba(200, 200, 200, 0.5);
 }
 
+.white {
+    background-color: #fff;
+    width: 100%;
+}
+
 @media(min-width:768px) {
     body {
         margin-top: 50px;
@@ -210,17 +215,9 @@ li {
 
 /* index.html */
 
-#index-main-left {
-    width: 50%;
-    float: left;
+#index-head {
+    padding-top: 50px;
 }
-
-#index-main-right {
-    width: 50%;
-    float: left;
-    
-}
-
 #index-main-left-content {
     width: 100%;
     clear: both;
@@ -272,16 +269,12 @@ li {
     background-color: #8dbdd8;
 }
 
-#grade-btns {
-    width: 100%;
-    border: 2px solid gray;
-}
-
 .grade-btn {
     /*width: 21%;*/
     /*float: left;*/
     margin: 2%;
     padding: 10px 20px;
+    font-size: 24px;
 }
 
 #index-loan-detail {
@@ -298,6 +291,7 @@ li {
 #loans-left, #loans-right {
     width: 50%;
     float: left;
+    padding-top: 30px;
 }
 
 
@@ -347,34 +341,13 @@ li {
     background-color: blue;
 }
 */
-
-.slider {
-    width: 50%;
-}
-
-.selector-individual {
-    width: 50%;
-    float: left;
-}
-
-.selector-individual h4 {
-    text-align: center;
-    width: 50%;
-}
-.selector-individual input[type="text"] {
+#selector input {
+    background-color: rgba(100, 100, 100, 0);
     border: none;
     text-align: center;
-    width: 50%;
 }
 
-#selectors input {
-    background-color: rgba(100, 100, 100, 0);
-}
 
-.d3-chart {
-    width: 50%;
-    float: left;
-}
 
 .center {
     text-align: center;
@@ -524,10 +497,17 @@ circle{
 * Presentation
 */
 
-.slide {
-    width: 100%;
-    font-size: 20px;
+
+.slide-panel {
+    background-color: #fff;
 }
+
+#title-slide-content {
+    padding-top: 200px;
+}
+
+
+/*
 
 .slide-plot {
     width: 50%;
@@ -541,7 +521,7 @@ circle{
     padding: 50px 10%;
     float: left;
 }
-*/
+/*
 
 #slide-2 img {
     width: 100%;
@@ -567,12 +547,18 @@ circle{
     border-bottom: 1px solid #212121;
 }
 
+#slide-4-left, #slide-4-right {
+    width: 50%;
+    float: left;
+}
+
 #slide-4 #random-forest-plot {
     width: 100%;
 }
 
 #slide-4-plots {
     text-align: left;
+
 }
 
 #slide-5-plots, #slide-5-right {
@@ -593,6 +579,26 @@ circle{
     text-align: left;
     list-style-type: decimal;
 }
+
+#slide-6-plots, #slide-6-right {
+    width: 50%;
+    float: left;
+}
+
+#slide-6 #case-study-plot {
+    width: 100%;
+}
+
+#slide-6 ul > li {
+    text-align: left;
+    list-style-type: circle;
+}
+
+#slide-6 ol > li {
+    text-align: left;
+    list-style-type: decimal;
+}
+*/
 
 .hidden {
     display: none;

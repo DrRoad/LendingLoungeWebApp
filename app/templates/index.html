@@ -1,29 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
-
-<div class="row center" id="index-head">
-    <h1>Find the best loans on <img src="../static/images/lc_logo.png" width="250" /></h1>
-</div>
 <div class="row">
-    <div class="col-lg-12">
-        <div class="panel-default">
+    <div class="panel panel-default">
+        <div class="col-md-12" id="index-head">
+            <h1 class="center">Find the best loans on <img src="../static/images/lc_logo.png" width="250" /></h1>
+        </div>
+    </div>
+</div>
+
+<div clas="row">
+    <div class="panel panel-default">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2 class="center">To get started, choose a grade</h2>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="col-lg-12">
             <div class="center" id="grade-btns">
-                <h2>To get started, choose a grade</h2>
-            
                 <button class="btn btn-success grade-btn" id="A-btn">Grade A</button>
                 <button class="btn btn-info grade-btn" id="B-btn">Grade B</button>
                 <button class="btn btn-primary grade-btn" id="C-btn">Grade C</button>
                 <a href="./loans"><button class="btn btn-default grade-btn" id="loans-btn">Explore all loans</button></a>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="col-md-6">
             <div class="panel-body" id="index-main-left">
-                <div id="index-main-left-content">
-                    
-                </div> <!-- index-main-left-content -->
+                <div id="index-main-left-content"></div>
                 <div class="center" id="show-more-div">
                     <h1><span class="glyphicon glyphicon-chevron-down hidden" id="more-loans"></span></h1>
                 </div>
             </div>
-            
+        </div>
+        <div class="col-md-6">
             <div class="panel-body" id="index-main-right">
                 <div class="panel-body hidden grey" id="index-loan-detail">
                     <div class="loan-detail" id="loan-detail-borrower">
@@ -103,6 +121,15 @@
                     </div>
                 </div> <!-- loan-detail -->
             </div>
+        </div>
+    </div>
+</div>
+
+
+
+            
+            
+            
         </div>
     </div>
 </div>

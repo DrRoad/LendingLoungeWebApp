@@ -5,11 +5,6 @@ $(document).ready(function() {
     color_table_rows_on_click();
     show_sliders();
     get_data_ajax();
-    $('.loan-tr').click(function(){
-        var tr_id = $(this).attr('id');
-        reload_loan_detail(tr_id);
-    });
-
 });
 
 function tablesorter() {
@@ -131,7 +126,7 @@ function reload_loan_detail(loanId) {
             $('#loan-detail').toggleClass("active", false);
             $('#' + loanId).children().css('background-color', 'white');
         }
-        $('#' + loanId).after('<tr id="tr-loan-detail"><td colspan="7" id="td-loan-detail"></td></tr>');
+        $('#' + loanId).after('<tr id="tr-loan-detail"><td colspan="5" id="td-loan-detail"></td></tr>');
         $('#td-loan-detail').append($('#loan-detail'));
         $('#loan-detail').toggleClass("active", true);
 
@@ -199,7 +194,10 @@ function color_table_rows_on_hover() {
 
 function color_table_rows_on_click() {
     $('.loan-tr').click(function() {
-        $(this).children().css('background-color', '#8dbdd8');
+        $(this).children().css('background-color', 'red');
+        var tr_id = $(this).attr('id');
+        console.log("clicked");
+        reload_loan_detail(tr_id);
     });
 }
 
@@ -289,20 +287,19 @@ function update_table(loans) {
         var pred_default_error = loans['loans'][i]['pred_default_error'];
         var pred_default_time_error = loans['loans'][i]['pred_default_time_error'];
         var html_to_append = '<tr class="loan-tr tr-active" id="' + id + '"> \
-                                <td>' + index + '</td> \
                                 <td>' + grade + '</td> \
                                 <td>' + intRate + '%</td> \
                                 <td>$' + loanAmnt + '</td> \
                                 <td>' + pred_roi + '%</td> \
                                 <td>' + pred_default + '&#177; ' + pred_default_error + '</td> \
-                                <td>' + pred_default_time + '&#177; ' + pred_default_time_error + '</td> \
                               </tr>'
         $("#topTable").append(html_to_append)
     }
     color_table_rows_on_hover();
+    color_table_rows_on_click();
     
     //reset tablesorter
-    $(".tablesorter").trigger("update"); 
+    $(".tablesorter").trigger("update");
 };
 
 function draw_d3_chart(container, data) {

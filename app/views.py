@@ -90,7 +90,7 @@ mean_int_rate = 0
 for i, loan in enumerate(loans):
 	mean_roi += loan['pred_roi']
 	mean_default_prob += loan['pred_default']
-	#mean_prepaid_prob += loan['pred_prepaid']
+	mean_prepaid_prob += loan['pred_prepaid']
 	mean_loan_amount += loan['loanAmnt']
 	mean_int_rate += loan['intRate']
 	if loan['pred_paid'] > 0.5:
@@ -124,7 +124,7 @@ for i, loan in enumerate(loans):
 	loan['addrState'] = loan['addrState'].strip()
 mean_roi = mean_roi / len(loans)
 mean_default_prob = mean_default_prob / len(loans)
-#mean_prepaid_prob = mean_prepaid_prob / len(mean_prepaid_prob)
+mean_prepaid_prob = mean_prepaid_prob / len(loans)
 mean_loan_amount = mean_loan_amount / len(loans)
 mean_int_rate = mean_int_rate / len(loans)
 
@@ -140,6 +140,7 @@ def show_loans():
 				loans=loans,
 				mean_roi=mean_roi,
 				mean_default_prob=mean_default_prob,
+				mean_prepaid_prob=mean_prepaid_prob,
 				mean_loan_amount=mean_loan_amount,
 				mean_int_rate=mean_int_rate)
 
