@@ -194,7 +194,6 @@ function color_table_rows_on_hover() {
 
 function color_table_rows_on_click() {
     $('.loan-tr').click(function() {
-        $(this).children().css('background-color', 'red');
         var tr_id = $(this).attr('id');
         console.log("clicked");
         reload_loan_detail(tr_id);

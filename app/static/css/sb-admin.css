@@ -7,12 +7,11 @@
 /* Global Styles */
 
 html {
-    
+
 }
 
 body {
     margin-top: 100px;
-    /*background-color: #fff;*/
     background: url(../images/canvas_bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -20,8 +19,9 @@ body {
     background-size: cover;
 }
 
-.grey {
-    background-color: rgba(200, 200, 200, 0.5);
+.light-grey {
+    background-color: rgba(255, 255, 255, 0.5);
+    min-height: 1000px;
 }
 
 .white {
@@ -44,6 +44,7 @@ body {
     padding-left: 0;
     background-color: rgba(200, 200, 200, 0.3);
     min-height: 1000px;
+    height: auto;
 }
 
 #page-wrapper {
@@ -312,6 +313,7 @@ li {
 #loan-detail {
     width: 100%;
     padding: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .loan-detail h3 {
@@ -362,6 +364,11 @@ li {
 }
 
 /* data story */
+
+#data-story-head {
+    padding: 50px 20px;
+}
+
 .data-story-plot {
     width: 50%;
     float: left;
@@ -497,13 +504,26 @@ circle{
 * Presentation
 */
 
-
 .slide-panel {
     background-color: #fff;
 }
 
 #title-slide-content {
     padding-top: 200px;
+}
+
+.slide li {
+    font-size: 24px;
+}
+
+.slide ul > li {
+    text-align: left;
+    list-style-type: circle;
+}
+
+.slide ol > li {
+    text-align: left;
+    list-style-type: decimal;
 }
 
 
@@ -570,15 +590,7 @@ circle{
     width: 100%;
 }
 
-#slide-5 ul > li {
-    text-align: left;
-    list-style-type: circle;
-}
 
-#slide-5 ol > li {
-    text-align: left;
-    list-style-type: decimal;
-}
 
 #slide-6-plots, #slide-6-right {
     width: 50%;
