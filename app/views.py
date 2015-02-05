@@ -8,7 +8,6 @@ from time import strftime, strptime
 import numpy as np
 import json
 
-#passwd = os.environ['MYSQL_PASSWORD']
 with open('credentials.json') as credentials_file:
 	credentials = json.load(credentials_file)
 
