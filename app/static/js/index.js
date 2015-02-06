@@ -89,7 +89,7 @@ function reload_loan_detail(loan_id) {
         $('#index-loan-default-prob').text(json['loan']['pred_default'])
         $('#index-loan-default-prob-error').text(json['loan']['pred_default_error'])
         $('#index-loan-prepaid-prob').text(json['loan']['pred_prepaid'])
-        $('#index-loan-prepaid-prob-error').text(json['loan']['pred_prepaid_error'])
+        //$('#index-loan-prepaid-prob-error').text(json['loan']['pred_prepaid_error'])
     });
 };
 

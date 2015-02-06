@@ -229,27 +229,6 @@ $(document).ready(function () {
             pointFormat: '<b><p style="color: {series.color}">{series.name}: {point.y}%</p></b>'
         },
         series: [{
-            name: 'Training Set',
-            color: 'blue',
-            lineWidth: 5,
-            marker: {
-                radius: 6
-            },
-            data: [[10, 0.93], 
-                   [20, 0.94],
-                   [30, 0.94], 
-                   [40, 0.94], 
-                   [50, 0.95], 
-                   [60, 0.95], 
-                   [70, 0.95], 
-                   [80, 0.95], 
-                   [90, 0.95], 
-                   [100, 0.95], 
-                   [300, 0.95], 
-                   [500, 0.95], 
-                   [1000, 0.95]]
-        },
-        {
             name: 'Test Set',
             color: 'green',
             lineWidth: 5,

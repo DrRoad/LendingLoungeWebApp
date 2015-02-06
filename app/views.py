@@ -101,6 +101,10 @@ for i, loan in enumerate(loans):
 	except ValueError:
 		pass
 	try:
+		loans[i]['pred_prepaid'] = "%.2f" %float(loans[i]['pred_prepaid'])
+	except ValueError:
+		pass
+	try:
 		loans[i]['pred_default_time_error'] = "%i" %float(loans[i]['pred_default_time_error'])
 	except ValueError:
 		pass
@@ -168,18 +172,6 @@ def loan_recommendation():
 			if loans_sorted_roi[i]['id'] == prev_loan_id:
 				best_loan = loans_sorted_roi[i+1]
 
-
-
-	# possible_loans = []
-	# for loan in loans:
-	# 	#take the first character because loan['grade'] is in the form "A3"
-	# 	if loan['grade'][:1] == grade:
-	# 		possible_loans.append(loan)
-	# best_loan = possible_loans[0]
-	# for loan in possible_loans:
-	# 	if loan['pred_roi'] > best_loan['pred_roi']:
-	# 		best_loan = loan
-	# print best_loan['id'], best_loan['pred_roi']
 	return jsonify(loan=best_loan)
 	
 

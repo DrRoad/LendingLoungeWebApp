@@ -63,7 +63,7 @@ $(document).ready(function () {
       }
     });
 
-    //loan status plot
+    //yearly loan issuance plot plot
     $('#yearly-loan-issuance-plot').highcharts({
         chart: {
             type: 'column'
@@ -226,33 +226,20 @@ $(document).ready(function () {
     //loan status plot
     $('#loan-status-plot').highcharts({
         chart: {
-            type: 'column'
+            type: 'pie'
+        },
+        plotOptions: {
+            pie: {
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    style: {fontSize: '24px' }
+                }
+            }
         },
         title: {
             text: 'Loan Status Breakdown'
         },
-        xAxis: {
-            categories: ['Paid On Time', 'Prepaid', 'Default'],
-            labels : {
-                style: {
-                    fontSize: '20px'
-                }
-            }
-        },
-        yAxis: {
-            title: {
-                text: '% of Loans',
-                style: {
-                    fontSize: '24px'
-                }
-            },
-            labels : {
-                style: {
-                    fontSize: '20px'
-                }
-            }
-        },
-
         legend: {
             enabled: false
         },
@@ -264,7 +251,9 @@ $(document).ready(function () {
         series: [{
             //name: 'Days Since Loan Origination',
             color: 'blue',
-            data: [27, 57, 16]
+            data: [['Paid on Time', 27], 
+                   ['Prepaid', 57], 
+                   ['Default', 16]]
         }]
     });
 

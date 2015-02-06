@@ -161,6 +161,9 @@ function reload_loan_detail(loanId) {
         $('#loan-mthsSinceLastDerog').text(json['loan']['mthsSinceLastDerog'])
         $('#loan-collections12MthsExMed').text(json['loan']['collections12MthsExMed'])
         $('#loan-description').text(json['loan']['description'])
+        $('#loan-default-prob').text(json['loan']['pred_default'])
+        $('#loan-default-prob-error').text(json['loan']['pred_default_error'])
+        $('#loan-prepaid-prob').text(json['loan']['pred_prepaid'])
     });
 };
 
