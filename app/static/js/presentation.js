@@ -116,113 +116,6 @@ $(document).ready(function () {
         }]
     });
 
-    //case study plot
-    $('#case-study-incomplete-plot').highcharts({
-        chart: {
-            type: 'line'
-        },
-        title: {
-            text: 'ROI for Various Investment Strategies'
-        },
-        xAxis : {
-            title: {
-                text: 'Number of Loans Per Grade',
-                style: {
-                    fontSize: '24px'
-                },
-            },
-            labels : {
-                style: {
-                    fontSize: '20px'
-                }
-            }
-        },
-        yAxis: {
-            title: {
-                text: 'Actual ROI (%)',
-                style: {
-                    fontSize: '24px'
-                },
-            },
-            labels : {
-                style: {
-                    fontSize: '20px'
-                }
-            },
-            min: -2.7,
-            max: 10
-        },
-
-        legend: {
-            enabled: true
-        },
-        tooltip: {
-            shared: [true],
-            crosshairs: [true],
-            useHTML: true,
-            headerFormat: '<b><p>{point.key} Samples from each grade</p></b>',
-            pointFormat: '<b><p style="color: {series.color}">{series.name}: {point.y}%</p></b>',
-        },
-        series: [{
-            name: 'Random',
-            lineWidth: 5,
-            marker: {
-                radius: 6
-            },
-            data: [[1, -0.2], 
-                   [5, 2.5],
-                   [10, 1.2],
-                   [20, 1.9],
-                   [30, 1.4],
-                   [40, 1.8],
-                   [50, 1.4],
-                   [60, 1.5],
-                   [70, 1.7],
-                   [80, 1.6],
-                   [90, 1.5],
-                   [100, 1.5]]
-            },
-            {
-            name: 'Lowest DTI',
-            lineWidth: 5,
-            marker: {
-                radius: 6
-            },
-            data: [[1, 15], 
-                   [5, 10.6],
-                   [10, 4.4],
-                   [20, 7.2],
-                   [30, -0.4],
-                   [40, -2.6],
-                   [50, -1.7],
-                   [60, -0.1],
-                   [70, -0.2],
-                   [80, 0.2],
-                   [90, 0.9],
-                   [100, 1.7]]
-            },
-            {
-            name: 'Highest Int Rate',
-            lineWidth: 5,
-            marker: {
-                radius: 6
-            },
-            data: [[1, 15], 
-                   [5, 0.4],
-                   [10, 2.9],
-                   [20, 2.6],
-                   [30, 4.0],
-                   [40, 1.6],
-                   [50, 1.4],
-                   [60, 0.0],
-                   [70, -0.5],
-                   [80, -0.3],
-                   [90, -0.3],
-                   [100, -2.0]]
-            }
-        ]
-    });
-
     //loan status plot
     $('#loan-status-plot').highcharts({
         chart: {
@@ -330,6 +223,94 @@ $(document).ready(function () {
     $('#roc-plot').highcharts({
         chart: {
             type: 'line',
+            events: {
+                load: function(event) {
+                    //AUC Label
+                    var auc_label = this['renderer']['label']('AUC:')
+                    .css({
+                       'width': '150px',
+                       'color' : 'grey',
+                       'fontSize':'24px'
+                    })
+                    .attr({
+                       'stroke': 'grey',
+                       'stroke-width': 0,
+                       'r': 5,
+                       'padding': 3                      
+                    })
+                    .add();
+                   
+                    auc_label.align(Highcharts.extend(['label']['getBBox()'], {
+                       'align': 'right',
+                       'x': -100, // offset
+                       'verticalAlign': 'bottom',
+                       'y': -280 // offset
+                    }), null, 'spacingBox');
+                    // DEFAULT AUC
+                    var default_auc = this['renderer']['label']('Default: 0.68')
+                    .css({
+                       'width': '150px',
+                       'color' : 'grey',
+                       'fontSize':'20px'
+                    })
+                    .attr({
+                       'stroke': 'grey',
+                       'stroke-width': 0,
+                       'r': 5,
+                       'padding': 3                      
+                    })
+                    .add();
+                   
+                    default_auc.align(Highcharts.extend(['label']['getBBox()'], {
+                       'align': 'right',
+                       'x': -150, // offset
+                       'verticalAlign': 'bottom',
+                       'y': -230 // offset
+                    }), null, 'spacingBox');
+                    //PAID AUC
+                    var paid_auc = this['renderer']['label']('Fully Paid: 0.83')
+                    .css({
+                       'width': '150px',
+                       'color' : 'grey',
+                       'fontSize':'20px'
+                    })
+                    .attr({
+                       'stroke': 'grey',
+                       'stroke-width': 0,
+                       'r': 5,
+                       'padding': 3                      
+                    })
+                    .add();
+                   
+                    paid_auc.align(Highcharts.extend(['label']['getBBox()'], {
+                       'align': 'right',
+                       'x': -150, // offset
+                       'verticalAlign': 'bottom',
+                       'y': -180 // offset
+                    }), null, 'spacingBox');
+                    //PRPAID AUC
+                    var prepaid_auc = this['renderer']['label']('Prepaid: 0.72')
+                    .css({
+                       'width': '150px',
+                       'color' : 'grey',
+                       'fontSize':'20px'
+                    })
+                    .attr({
+                       'stroke': 'grey',
+                       'stroke-width': 0,
+                       'r': 5,
+                       'padding': 3                      
+                    })
+                    .add();
+                   
+                    prepaid_auc.align(Highcharts.extend(['label']['getBBox()'], {
+                       'align': 'right',
+                       'x': -150, // offset
+                       'verticalAlign': 'bottom',
+                       'y': -130 // offset
+                    }), null, 'spacingBox');
+                }
+            }        
         },
         title: {
             text: 'ROC Curve - 1 vs All'
@@ -720,7 +701,7 @@ $(document).ready(function () {
         },
         xAxis : {
             title: { 
-              text: "# of Loans Per Grade",
+              text: "Total # of Loans",
               style: {
                     fontSize: '24px'
                 }
@@ -763,18 +744,18 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[1, -0.2], 
-                   [5, 2.5],
-                   [10, 1.2],
-                   [20, 1.9],
-                   [30, 1.4],
-                   [40, 1.8],
-                   [50, 1.4],
-                   [60, 1.5],
-                   [70, 1.7],
-                   [80, 1.6],
-                   [90, 1.5],
-                   [100, 1.5]]
+            data: [[3, -0.2], 
+                   [15, 2.5],
+                   [30, 1.2],
+                   [60, 1.9],
+                   [90, 1.4],
+                   [120, 1.8],
+                   [150, 1.4],
+                   [180, 1.5],
+                   [210, 1.7],
+                   [240, 1.6],
+                   [270, 1.5],
+                   [300, 1.5]]
             },
             {
             name: 'Lowest DTI',
@@ -782,18 +763,18 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[1, 15], 
-                   [5, 10.6],
-                   [10, 4.4],
-                   [20, 7.2],
-                   [30, -0.4],
-                   [40, -2.6],
-                   [50, -1.7],
-                   [60, -0.1],
-                   [70, -0.2],
-                   [80, 0.2],
-                   [90, 0.9],
-                   [100, 1.7]]
+            data: [[3, 15], 
+                   [15, 10.6],
+                   [30, 4.4],
+                   [60, 7.2],
+                   [90, -0.4],
+                   [120, -2.6],
+                   [150, -1.7],
+                   [180, -0.1],
+                   [210, -0.2],
+                   [240, 0.2],
+                   [270, 0.9],
+                   [300, 1.7]]
             },
             {
             name: 'Highest Int Rate',
@@ -801,18 +782,18 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[1, 15], 
-                   [5, 0.4],
-                   [10, 2.9],
-                   [20, 2.6],
-                   [30, 4.0],
-                   [40, 1.6],
-                   [50, 1.4],
-                   [60, 0.0],
-                   [70, -0.5],
-                   [80, -0.3],
-                   [90, -0.3],
-                   [100, -2.0]]
+            data: [[3, 15], 
+                   [15, 0.4],
+                   [30, 2.9],
+                   [60, 2.6],
+                   [90, 4.0],
+                   [120, 1.6],
+                   [150, 1.4],
+                   [180, 0.0],
+                   [210, -0.5],
+                   [240, -0.3],
+                   [270, -0.3],
+                   [300, -2.0]]
             }
         ]
     });
@@ -827,7 +808,7 @@ $(document).ready(function () {
         },
         xAxis : {
             title: { 
-              text: "# of Loans Per Grade",
+              text: "Total # of Loans",
               style: {
                     fontSize: '24px'
                 }
@@ -870,18 +851,18 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[1, -0.2], 
-                   [5, 2.5],
-                   [10, 1.2],
-                   [20, 1.9],
-                   [30, 1.4],
-                   [40, 1.8],
-                   [50, 1.4],
-                   [60, 1.5],
-                   [70, 1.7],
-                   [80, 1.6],
-                   [90, 1.5],
-                   [100, 1.5]]
+            data: [[3, -0.2], 
+                   [15, 2.5],
+                   [30, 1.2],
+                   [60, 1.9],
+                   [90, 1.4],
+                   [120, 1.8],
+                   [150, 1.4],
+                   [180, 1.5],
+                   [210, 1.7],
+                   [240, 1.6],
+                   [270, 1.5],
+                   [300, 1.5]]
             },
             {
             name: 'Lowest DTI',
@@ -889,18 +870,18 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[1, 15], 
-                   [5, 10.6],
-                   [10, 4.4],
-                   [20, 7.2],
-                   [30, -0.4],
-                   [40, -2.6],
-                   [50, -1.7],
-                   [60, -0.1],
-                   [70, -0.2],
-                   [80, 0.2],
-                   [90, 0.9],
-                   [100, 1.7]]
+            data: [[3, 15], 
+                   [15, 10.6],
+                   [30, 4.4],
+                   [60, 7.2],
+                   [90, -0.4],
+                   [120, -2.6],
+                   [150, -1.7],
+                   [180, -0.1],
+                   [210, -0.2],
+                   [240, 0.2],
+                   [270, 0.9],
+                   [300, 1.7]]
             },
             {
             name: 'Highest Int Rate',
@@ -908,18 +889,18 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[1, 15], 
-                   [5, 0.4],
-                   [10, 2.9],
-                   [20, 2.6],
-                   [30, 4.0],
-                   [40, 1.6],
-                   [50, 1.4],
-                   [60, 0.0],
-                   [70, -0.5],
-                   [80, -0.3],
-                   [90, -0.3],
-                   [100, -2.0]]
+            data: [[3, 15], 
+                   [15, 0.4],
+                   [30, 2.9],
+                   [60, 2.6],
+                   [90, 4.0],
+                   [120, 1.6],
+                   [150, 1.4],
+                   [180, 0.0],
+                   [210, -0.5],
+                   [240, -0.3],
+                   [270, -0.3],
+                   [300, -2.0]]
             },
             {
             name: 'Lending Lounge',
@@ -927,18 +908,18 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[1, 9.3], 
-                   [5, 0.2],
-                   [10, 3.7],
-                   [20, 4.5],
-                   [30, 5.7],
-                   [40, 6.5],
-                   [50, 6.7],
-                   [60, 6.1],
-                   [70, 6.5],
-                   [80, 5.7],
-                   [90, 5.5],
-                   [100, 5.1]]
+            data: [[3, 9.3], 
+                   [15, 0.2],
+                   [30, 3.7],
+                   [60, 4.5],
+                   [90, 5.7],
+                   [120, 6.5],
+                   [150, 6.7],
+                   [180, 6.1],
+                   [210, 6.5],
+                   [240, 5.7],
+                   [270, 5.5],
+                   [300, 5.1]]
             }
         ]
     });

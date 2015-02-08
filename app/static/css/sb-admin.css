@@ -67,11 +67,12 @@ body {
 /* Top Navigation */
 .navbar-inverse {
     
-    background: url(../images/wood_2_grey.png) no-repeat center center fixed; 
+    background: url(../images/wood_2_grey.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding-left: 1%;
 }
 
 .navbar-header {

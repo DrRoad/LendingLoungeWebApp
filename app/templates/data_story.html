@@ -6,9 +6,9 @@
 			<div class="col-md-12">
 				<h2 class="center">The Problem</h2>
 				<div class="panel-default data-story-top">
-					<h3>Amateur Investors Are Idiots</h3>
-					<p>Amateur investors, myself included, are generally stupid. When investing in peer-to-peer loans, we tend to devise heuristic strategies with no (or very little) data to back up their efficacy. Sometimes I will look at the debt-to-income ratio of borrowers. Other times the annual income or the profession. These strategies lead to marginal returns and eventual frustration with the peer-to-peer lending system.</p>
-					<p>The purpose of this project is to create a data-driven investment strategy for loan on the Lending Club marketplace, using the metric of highest estimated ROI.</p>
+					<h3>Amateur Investors Need Help</h3>
+					<p>Amateur investors, myself included, generally need as much help as they can get. When investing in peer-to-peer loans, we tend to devise heuristic strategies with no (or very little) data to back up their efficacy. Sometimes we'll look at the debt-to-income ratio of borrowers. Other times the annual income or the profession. These strategies lead to marginal returns and eventual frustration with the peer-to-peer lending system.</p>
+					<p>The purpose of this project is to create a data-driven investment strategy for loans on the Lending Club marketplace, using the metric of highest estimated ROI.</p>
 				
 					<div id="problem-plot" class="data-story-plot panel-body"></div>
 				</div>
@@ -20,12 +20,22 @@
 			<div class="col-md-12">
 				<div class="panel-default data-story-top">
 					<h3>What This Project Is Not</h3>
-					<p>Let me get the caveats out of the way first - this project is not a black-box money maker for the peer-to-peer investor. It is not intended to provide financial advice, but rather to give an insight into the fast growing peer-to-peer lending club space.</p>
+					<p>Let me get the caveats out of the way first.
+					Alternative investments are intended for qualified and suitable investors only. Alternative Investments such as peer-to-peer loans can result in higher return potential but also higher loss potential. Changes in economic conditions or other circumstances may adversely affect your investments. Before you invest in alternative investments, you should consider your overall financial situation, how much money you have to invest, your need for liquidity, and your tolerance for risk. Alternative Investments are speculative and involve a high degree of risk.</p>
+					<p>
+					This is not intended to provide financial advice. Please consult a financial advisor for specific information. 
+					</p>
+
+
+
+
+
+					</p>
 					<p>A number of simplifying assumptions have been made, which should be carefully scrutinized.</p>
 					<ol>
 						<li>Without having access to the detailed payment history of each borrower, I have had to make assumptions about when and how they pay their installments. For example, in the case of prepayment, all I know is the total amount of money paid and the date of the last payment. I therefore assumed that the borrower made normal monthly payments until the last payment, where they then paid the remaining principle in full.</li>
 						<p></p>
-						<li>No fees. I have not included any of the fees charged by Lending Club</li>
+						<li>No fees. I have not included any of the fees charged by Lending Club.</li>
 						<p></p>
 						<li>36 month loans originating before 2013. I focused solely on 36 month loans to simplify the analysis. A next step is to extend this to the 60 month loans. In addition, I only incorporated loans originating before 2013 because loans having originated after this have not yet had a chance to mature (as of jan 2015). These newer loans would therefore throw off both the default rate and the prepayment rate.</li>
 					</ol>
@@ -45,6 +55,7 @@
 						<p>The dataset from Lending Club consists of details for over 300,000 loans originating since 2007. Of these, almost 100,000 have either been fully paid or have been charged off. These are the loans used in this project. This project has been restricted to only using 36-month term loans.</p>
 						<p>In the LC dataset are a number of features on the borrower's credit: debt-to-income ratio, credit score range, number of open credit card accounts, income, etc. These data have been augmented by unemployment rates in the borrower's state (Bureau of Labor Statistics) and the 3-year swap interest rate, taken as an indicator of the risk-free interest rate.</p>
 						<p>As seen in the plot on the left, only 27% of loans are paid back following the schedule prescribed by lending club. 57% are paid back early, and 16% default. It is therefore critical for an investor to be able to estimate the probability of prepayment and default, as well as the expected time for it to happen.</p>
+						<p>Below, you can explore the annual income, as well as a few other pieces of financial information, for borrowers on a per-state basis. For example, you will find that NJ borrowers have the highest average income of nearly $83K. It's also interesting to note (lower panel) that borrowers with grade G loans tend to have the highest annual income, but also the highest debt-to-income ratio.</p>
 					</div>
 					<div class="panel-default">
 						<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; float: left;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;le&#47;lending_lounge_income&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='lending_lounge_income&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;le&#47;lending_lounge_income&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /></object></div>
@@ -103,7 +114,7 @@
 	<div class="row">
 		<div class="panel panel-default">
 			<div class="col-md-12">
-				<div id="logistic-regr-plot" class="data-story-plot panel-body">
+				<div class="data-story-plot panel-body">
 					<table id="classification-table" class="data-story-table">
 						<thead>
 							<tr>
@@ -130,6 +141,7 @@
 							</tr>
 						</tbody>
 					</table>
+					<div id="roc-plot" class="panel-default"></div>
 				</div>
 				<div id="logistic-regr-right" class="panel-default data-text">
 					<h3>Classification - Logistic Regression</h3>
