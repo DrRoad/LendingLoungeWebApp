@@ -47,8 +47,7 @@
 						<p>As seen in the plot on the left, only 27% of loans are paid back following the schedule prescribed by lending club. 57% are paid back early, and 16% default. It is therefore critical for an investor to be able to estimate the probability of prepayment and default, as well as the expected time for it to happen.</p>
 					</div>
 					<div class="panel-default">
-						<img src="../static/images/loans_by_state.jpg" width="48%" />
-						<img src="../static/images/annual_income_by_state.jpg" width="48%" />
+						<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; float: left;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;le&#47;lending_lounge_income&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='lending_lounge_income&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;le&#47;lending_lounge_income&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /></object></div>
 					</div>
 				</div>
 			</div>
@@ -84,9 +83,6 @@
 				<h2 class="center">Algorithm</h2>
 				<div class="panel-default">
 					<div id="algorithm-left" class="panel-default data-text">
-					<div id="algorithm-plot" class="data-story-plot panel-body">
-						<img src="../static/images/algorithm_flowchart.png">
-					</div>
 						<h3>Overview</h3>
 						<p>Three pieces of information were desired from the analysis:</p>
 						<ol>
@@ -96,6 +92,9 @@
 						</ol>
 						<p>The data was carefully examined for outliers, correlated features, incorrect data, and to get an overall impression of the dataset (a USPS driver was incorrectly listed as making $7 million dollars a year, for instance).</p>
 						<p>After the exploratory analysis, the data was cleaned and the categorical variables were binarized. It was at this step that outside economic data was incorporated for each borrower's location and issue year. Following the cleaning process, the data was loaded into an Amazon AWS MySQL server to allow easy access and integrity.</p>
+					</div>
+					<div id="algorithm-plot" class="data-story-plot panel-body">
+						<img src="../static/images/algorithm_flowchart.png">
 					</div>
 				</div>
 			</div>
@@ -109,24 +108,25 @@
 						<thead>
 							<tr>
 								<th>Class</th>
-								<th>Precision</th>
+								<th>Logistic Regressor Precision</th>
+								<th>Dummy Classifier Precision</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>Default</td>
-								<td>0.71</td>
-							</tr>
-							<tr>
-								<td>Fully Paid on Time</td>
-								<td>0.53</td>
+								<td>38.7 &#177; 6.5 %</td>
+								<td>15.9 &#177; 1.0 %</td>
 							</tr>
 							<tr>
 								<td>Prepaid</td>
-								<td>0.68</td>
+								<td>68.6 &#177; 0.5 %</td>
+								<td>67.5 &#177; 0.6 %</td>
 							</tr>
 							<tr>
-								<td colspan="2" class="center">Overall Accuracy: 0.68</td>
+								<td>Fully Paid on Time</td>
+								<td>47.8 &#177; 3.7 %</td>
+								<td>16.6 &#177; 1.1 %</td>
 							</tr>
 						</tbody>
 					</table>

@@ -403,6 +403,10 @@ li {
     width: 100%;
 }
 
+#algorithm-plot img {
+    width: 100%;
+}
+
 
 /*
 * d3 css styles
