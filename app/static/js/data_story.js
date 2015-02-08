@@ -1,34 +1,29 @@
 $(document).ready(function () {
+    //Global Highcharts Options
+    Highcharts.setOptions({
+      lang: {
+        numericSymbols: [ "k" , "M" , "B" , "T" , "P" , "E"]
+      }
+    });
+
     //loan status plot
     $('#loan-status-plot').highcharts({
         chart: {
-            type: 'column'
+            type: 'pie',
+            backgroundColor:'rgba(255, 255, 255, 0.1)'
+        },
+        plotOptions: {
+            pie: {
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    style: {fontSize: '24px' }
+                }
+            }
         },
         title: {
             text: 'Loan Status Breakdown'
         },
-        xAxis: {
-            categories: ['Paid On Time', 'Prepaid', 'Default'],
-            labels : {
-                style: {
-                    fontSize: '20px'
-                }
-            }
-        },
-        yAxis: {
-            title: {
-                text: '% of Loans',
-                style: {
-                    fontSize: '24px'
-                }
-            },
-            labels : {
-                style: {
-                    fontSize: '20px'
-                }
-            }
-        },
-
         legend: {
             enabled: false
         },
@@ -40,14 +35,17 @@ $(document).ready(function () {
         series: [{
             //name: 'Days Since Loan Origination',
             color: 'blue',
-            data: [27, 57, 16]
+            data: [['Paid on Time', 27], 
+                   ['Prepaid', 57], 
+                   ['Default', 16]]
         }]
     });
 
     //default histogram
     $('#default-hist').highcharts({
         chart: {
-            type: 'column'
+            type: 'column',
+            backgroundColor:'rgba(255, 255, 255, 0.1)'
         },
         title: {
             text: 'Time to Default'
@@ -116,7 +114,8 @@ $(document).ready(function () {
     //prepaid histogram
     $('#prepaid-hist').highcharts({
         chart: {
-            type: 'column'
+            type: 'column',
+            backgroundColor:'rgba(255, 255, 255, 0.1)'
         },
         title: {
             text: 'Time to Prepay'
@@ -185,7 +184,8 @@ $(document).ready(function () {
     //Random Forest Convergence
     $('#random-forest-plot').highcharts({
         chart: {
-            type: 'line'
+            type: 'line',
+            backgroundColor:'rgba(255, 255, 255, 0.1)'
         },
         title: {
             text: 'Convergence of Random Forest'
@@ -254,7 +254,8 @@ $(document).ready(function () {
     //case study plot
     $('#case-study-plot').highcharts({
         chart: {
-            type: 'line'
+            type: 'line',
+            backgroundColor:'rgba(255, 255, 255, 0.1)'
         },
         title: {
             text: 'ROI for Various Investment Strategies'
