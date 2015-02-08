@@ -27,12 +27,11 @@ function tablesorter() {
         // but you can change or disable them
         headers : {
             // set "sorter : false" (no quotes) to disable the column
-            0: {sorter: "digit"}, 
-            1: { sorter: "text" },
-            2: { sorter: "digit" },
-            3: { sorter: "currency" },
+            0: {sorter: "text"}, 
+            1: { sorter: "digit" },
+            2: { sorter: "currency" },
+            3: { sorter: "digit" },
             4: { sorter: "digit" },
-            5: { sorter: "digit" }
         },
         // extract text from the table - this is how is
         // it done by default
@@ -162,7 +161,7 @@ function reload_loan_detail(loanId) {
         $('#loan-collections12MthsExMed').text(json['loan']['collections12MthsExMed'])
         $('#loan-description').text(json['loan']['description'])
         $('#loan-default-prob').text(json['loan']['pred_default'])
-        $('#loan-default-prob-error').text(json['loan']['pred_default_error'])
+        //$('#loan-default-prob-error').text(json['loan']['pred_default_error'])
         $('#loan-prepaid-prob').text(json['loan']['pred_prepaid'])
     });
 };
@@ -286,14 +285,14 @@ function update_table(loans) {
         var pred_roi = loans['loans'][i]['pred_roi'];
         var pred_default = loans['loans'][i]['pred_default'];
         var pred_default_time = loans['loans'][i]['pred_default_time'];
-        var pred_default_error = loans['loans'][i]['pred_default_error'];
-        var pred_default_time_error = loans['loans'][i]['pred_default_time_error'];
+        //var pred_default_error = loans['loans'][i]['pred_default_error'];
+        //var pred_default_time_error = loans['loans'][i]['pred_default_time_error'];
         var html_to_append = '<tr class="loan-tr tr-active" id="' + id + '"> \
                                 <td>' + grade + '</td> \
                                 <td>' + intRate + '%</td> \
                                 <td>$' + loanAmnt + '</td> \
                                 <td>' + pred_roi + '%</td> \
-                                <td>' + pred_default + '&#177; ' + pred_default_error + '</td> \
+                                <td>' + pred_default + '</td> \
                               </tr>'
         $("#topTable").append(html_to_append)
     }

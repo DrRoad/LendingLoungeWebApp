@@ -41,7 +41,7 @@
                             <td>{{loan['intRate']}}%</td> 
                             <td>${{loan['loanAmnt']}}0</td>
                             <td>{{loan['pred_roi']}}%</td>
-                            <td>{{loan['pred_default']}} &#177; {{loan['pred_default_error']}}</td>
+                            <td>{{loan['pred_default']}}</td>
                         </tr>
                         {% endfor %}
                         </tbody> 
@@ -159,7 +159,7 @@
             <div class="loan-detail" id="loan-detail-analysis">
                 <h3>Analysis</h3>
                 <ul>
-                    <li>Probability of default: <b><span id="loan-default-prob"></span> &#177; <span id="loan-default-prob-error"></span></b></li>
+                    <li>Probability of default: <b><span id="loan-default-prob"></span></b></li>
                     <li>Probability of prepay: <b><span id="loan-prepaid-prob"></span></b></li>
                 </ul>
                 

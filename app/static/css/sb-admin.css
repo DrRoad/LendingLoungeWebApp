@@ -228,7 +228,7 @@ li {
 #index-loan-detail {
     margin-top: 20px;
     border: 1px solid black;
-    background-color: #ECFF73;
+    background-color: #F4FFBD;
 }
 
 .loan-thumbnail {
@@ -269,7 +269,7 @@ li {
 }
 
 .loan-thumbnail-highlighted {
-    background-color: #ECFF73;
+    background-color: #F4FFBD;
 }
 
 .grade-btn {
