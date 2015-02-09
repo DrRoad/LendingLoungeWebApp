@@ -306,7 +306,7 @@ function update_table(loans) {
 function draw_d3_chart(container, data) {
     //plots data in blue, data_grey in grey
     //data_grey has no hover or tooltip
-    var w = 600;
+    var w = 500;
     var h = 300;
     var padding = 60;
 

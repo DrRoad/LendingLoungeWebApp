@@ -81,7 +81,7 @@ $(document).ready(function () {
         },
         yAxis: {
             title: {
-                text: 'Total Issued ($)',
+                text: 'Dollars Issued (Billions)',
                 style: {
                     fontSize: '24px'
                 }
@@ -92,7 +92,7 @@ $(document).ready(function () {
                     fontSize: '20px'
                 }
             },
-            max: 6300000000
+            max: 6.3
         },
 
         legend: {
@@ -106,13 +106,13 @@ $(document).ready(function () {
         series: [{
             //name: 'Days Since Loan Origination',
             color: 'blue',
-            data: [24766575, 
-                   76581325, 
-                   202932500, 
-                   460296150, 
-                   1178238775,
-                   3242852550,
-                   6205366548]
+            data: [0.025, 
+                   0.077, 
+                   0.20, 
+                   0.46, 
+                   1.2,
+                   3.2,
+                   6.2]
         }]
     });
 
@@ -347,7 +347,10 @@ $(document).ready(function () {
         },
 
         legend: {
-            enabled: true
+            enabled: true,
+            itemStyle: {
+                    fontSize: '18px'
+            }
         },
         tooltip: {
             enabled: false
@@ -658,7 +661,10 @@ $(document).ready(function () {
         },
 
         legend: {
-            enabled: true
+            enabled: true,
+            itemStyle: {
+                    fontSize: '18px'
+            }
         },
         tooltip: {
             shared: [true],
@@ -729,7 +735,10 @@ $(document).ready(function () {
         },
 
         legend: {
-            enabled: true
+            enabled: true,
+            itemStyle: {
+                    fontSize: '16px'
+            }
         },
         tooltip: {
             shared: [true],
@@ -744,10 +753,10 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[3, -0.2], 
-                   [15, 2.5],
-                   [30, 1.2],
-                   [60, 1.9],
+            data: [//[3, -0.2], 
+            //        [15, 2.5],
+            //        [30, 1.2],
+            //        [60, 1.9],
                    [90, 1.4],
                    [120, 1.8],
                    [150, 1.4],
@@ -763,10 +772,10 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[3, 15], 
-                   [15, 10.6],
-                   [30, 4.4],
-                   [60, 7.2],
+            data: [//[3, 15], 
+                   // [15, 10.6],
+                   // [30, 4.4],
+                   // [60, 7.2],
                    [90, -0.4],
                    [120, -2.6],
                    [150, -1.7],
@@ -782,10 +791,10 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[3, 15], 
-                   [15, 0.4],
-                   [30, 2.9],
-                   [60, 2.6],
+            data: [//[3, 15], 
+                   // [15, 0.4],
+                   // [30, 2.9],
+                   // [60, 2.6],
                    [90, 4.0],
                    [120, 1.6],
                    [150, 1.4],
@@ -836,7 +845,10 @@ $(document).ready(function () {
         },
 
         legend: {
-            enabled: true
+            enabled: true,
+            itemStyle: {
+                    fontSize: '16px'
+            }
         },
         tooltip: {
             shared: [true],
@@ -851,10 +863,10 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[3, -0.2], 
-                   [15, 2.5],
-                   [30, 1.2],
-                   [60, 1.9],
+            data: [//[3, -0.2], 
+                   // [15, 2.5],
+                   // [30, 1.2],
+                   // [60, 1.9],
                    [90, 1.4],
                    [120, 1.8],
                    [150, 1.4],
@@ -870,10 +882,10 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[3, 15], 
-                   [15, 10.6],
-                   [30, 4.4],
-                   [60, 7.2],
+            data: [//[3, 15], 
+                   // [15, 10.6],
+                   // [30, 4.4],
+                   // [60, 7.2],
                    [90, -0.4],
                    [120, -2.6],
                    [150, -1.7],
@@ -889,10 +901,10 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[3, 15], 
-                   [15, 0.4],
-                   [30, 2.9],
-                   [60, 2.6],
+            data: [//[3, 15], 
+                   // [15, 0.4],
+                   // [30, 2.9],
+                   // [60, 2.6],
                    [90, 4.0],
                    [120, 1.6],
                    [150, 1.4],
@@ -908,10 +920,10 @@ $(document).ready(function () {
             marker: {
                 radius: 6
             },
-            data: [[3, 9.3], 
-                   [15, 0.2],
-                   [30, 3.7],
-                   [60, 4.5],
+            data: [//[3, 9.3], 
+                   // [15, 0.2],
+                   // [30, 3.7],
+                   // [60, 4.5],
                    [90, 5.7],
                    [120, 6.5],
                    [150, 6.7],

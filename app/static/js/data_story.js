@@ -664,6 +664,12 @@ $(document).ready(function () {
             text: 'ROI for Various Investment Strategies'
         },
         xAxis : {
+            title: {
+                text: 'Number of Loans per Grade',
+                style: {
+                    fontSize: '24px'
+                }
+            },
             labels : {
                 style: {
                     fontSize: '20px'
@@ -687,7 +693,10 @@ $(document).ready(function () {
         },
 
         legend: {
-            enabled: true
+            enabled: true,
+            itemStyle: {
+                    fontSize: '18px'
+            }
         },
         tooltip: {
             shared: [true],
