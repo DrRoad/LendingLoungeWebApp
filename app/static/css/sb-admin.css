@@ -64,6 +64,25 @@ body {
     }
 }
 
+@media(max-width:767px) {
+    .top-nav>li {
+        width: 100%;
+        height: 60px;
+    }
+    .top-nav>li>a:hover,
+    .top-nav>li>a:focus,
+    .top-nav>.open>a,
+    .top-nav>.open>a:hover,
+    .top-nav>.open>a:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #d3-chart-left {
+        display: none;
+    }
+
+}
+
 /* Top Navigation */
 .navbar-inverse {
     
