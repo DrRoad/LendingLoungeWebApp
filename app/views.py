@@ -4,7 +4,7 @@ from flask import jsonify
 from app import app
 import pymysql as mdb
 import os
-from time import strftime, strptime
+from time import strftime, strptime, gmtime
 import numpy as np
 import json
 
@@ -135,10 +135,14 @@ mean_int_rate = mean_int_rate / len(loans)
 @app.route('/')
 @app.route('/index')
 def index():
+	#logging
+	print '! /index ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime())
 	return render_template("index.html", loans=loans)
 
 @app.route('/loans')
 def show_loans():
+	#logging
+	print '! /loans ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime())
 	return render_template("loans.html",
 				loans=loans,
 				mean_roi=mean_roi,
@@ -149,16 +153,22 @@ def show_loans():
 
 @app.route('/presentation')
 def presentation():
+	#logging
+	print '! /presentation ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime())
 	return render_template("presentation.html")
 
 @app.route('/data_story')
 def data_story():
+	#logging
+	print '! /data_story ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime())
 	return render_template("data_story.html")
 #AJAX functions
 
 #return all default probabilities
 @app.route('/loan_recommendation')
 def loan_recommendation():
+	#logging
+	print '!AJAX /loan_recommendations ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime())
 	grade = request.args.get('grade', 'A', type=str)
 	prev_loan_id = request.args.get('prev_loan_id', 0, type=int)
 	
@@ -179,6 +189,8 @@ def loan_recommendation():
 
 @app.route('/roi')
 def get_roi():
+	#logging
+	print '!AJAX /roi ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime())
 	roi = []
 	default_prob = []
 	loan_id = []
@@ -194,6 +206,8 @@ def get_roi():
 #return fields for one loan
 @app.route('/loan')
 def get_loan():
+	#logging
+	print '!AJAX /loan ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime())
 	loanId = request.args.get('loanId', 0, type=int)
 	for loan in loans:
 		if loan['id'] == loanId:
@@ -202,6 +216,8 @@ def get_loan():
 
 @app.route('/loans-filtered')
 def get_loans_filtered():
+	#logging
+	print '!AJAX /loans_filtered ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime())
 	#grade = request.args.get('grade', 0, type=int)
 	int_rate_min = request.args.get('int_rate_min', 0, type=float)
 	int_rate_max = request.args.get('int_rate_max', 0, type=float)
