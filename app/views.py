@@ -10,7 +10,7 @@ import json
 import logging
 
 #set up logging
-logging.basicConfig(filename='lending_lounge_main.log', level=logging.INFO)
+logging.basicConfig(filename='events.log', level=logging.INFO)
 
 
 with open('credentials.json') as credentials_file:
@@ -141,13 +141,13 @@ mean_int_rate = mean_int_rate / len(loans)
 @app.route('/index')
 def index():
 	#logging
-	logging.debug('! /index ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
+	logging.info('! /index ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
 	return render_template("index.html", loans=loans)
 
 @app.route('/loans')
 def show_loans():
 	#logging
-	logging.debug('! /loans ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
+	logging.info('! /loans ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
 	return render_template("loans.html",
 				loans=loans,
 				mean_roi=mean_roi,
@@ -159,13 +159,13 @@ def show_loans():
 @app.route('/presentation')
 def presentation():
 	#logging
-	logging.debug('! /presentation ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
+	logging.info('! /presentation ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
 	return render_template("presentation.html")
 
 @app.route('/data_story')
 def data_story():
 	#logging
-	logging.debug('! /data_story ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
+	logging.info('! /data_story ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
 	return render_template("data_story.html")
 #AJAX functions
 
@@ -173,7 +173,7 @@ def data_story():
 @app.route('/loan_recommendation')
 def loan_recommendation():
 	#logging
-	logging.debug('!AJAX /loan_recommendations ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
+	logging.info('!AJAX /loan_recommendations ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
 	grade = request.args.get('grade', 'A', type=str)
 	prev_loan_id = request.args.get('prev_loan_id', 0, type=int)
 	
@@ -195,7 +195,7 @@ def loan_recommendation():
 @app.route('/roi')
 def get_roi():
 	#logging
-	logging.debug('!AJAX /roi ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
+	logging.info('!AJAX /roi ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
 	roi = []
 	default_prob = []
 	loan_id = []
@@ -212,7 +212,7 @@ def get_roi():
 @app.route('/loan')
 def get_loan():
 	#logging
-	logging.debug('!AJAX /loan ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
+	logging.info('!AJAX /loan ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
 	loanId = request.args.get('loanId', 0, type=int)
 	for loan in loans:
 		if loan['id'] == loanId:
