@@ -10,7 +10,7 @@ import json
 import logging
 
 #set up logging
-logging.basicConfig(filename='./lending_lounge_main.log', level=logging.INFO)
+logging.basicConfig(filename='lending_lounge_main.log', level=logging.INFO)
 
 
 with open('credentials.json') as credentials_file:
