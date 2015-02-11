@@ -141,7 +141,8 @@ mean_int_rate = mean_int_rate / len(loans)
 @app.route('/index')
 def index():
 	#logging
-	logging.info('! /index ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
+	logging.info('index')
+	logging.info('! /index ' + request.remote_addr + strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
 	return render_template("index.html", loans=loans)
 
 @app.route('/loans')
