@@ -222,7 +222,7 @@ def get_loan():
 @app.route('/loans-filtered')
 def get_loans_filtered():
 	#logging
-	logging.info('!AJAX /loans_filtered ' + request.remote_addr + ' ' strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
+	logging.info('!AJAX /loans_filtered ' + request.remote_addr + ' ' + strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
 	#grade = request.args.get('grade', 0, type=int)
 	int_rate_min = request.args.get('int_rate_min', 0, type=float)
 	int_rate_max = request.args.get('int_rate_max', 0, type=float)
