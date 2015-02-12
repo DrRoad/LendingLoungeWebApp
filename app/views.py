@@ -155,6 +155,7 @@ def presentation():
 @app.route('/data_story')
 def data_story():
 	return render_template("data_story.html")
+	
 #AJAX functions
 
 #return all default probabilities
