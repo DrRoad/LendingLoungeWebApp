@@ -167,6 +167,7 @@ def data_story():
 	#logging
 	logging.debug('! /data_story ', request.remote_addr, strftime("%Y-%m-%d %H:%M:%S", gmtime()) )
 	return render_template("data_story.html")
+	
 #AJAX functions
 
 #return all default probabilities
